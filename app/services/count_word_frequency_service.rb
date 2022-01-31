@@ -9,7 +9,7 @@ class CountWordFrequencyService
   def call
     mssg = "Lo sentimos, no se detectó ninguna palabra en el texto"
 
-    return false, mssg if not text.present?
+    return false, mssg unless text.present?
     return true, word_count
   end
 
