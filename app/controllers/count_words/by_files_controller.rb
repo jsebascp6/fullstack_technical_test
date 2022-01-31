@@ -5,9 +5,7 @@ class CountWords::ByFilesController < ApplicationController
     status, mssg = ValidateFileAndCountWordsService.new(file)
 
     if status
-      puts "*"*100
-      puts "todo ok"
-      puts "*"*100
+      redirect_to count_words_result_path(:frequency => mssg)
     else
       flash[:error] = t('.error')
       redirect_to root_path

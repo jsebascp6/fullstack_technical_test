@@ -17,6 +17,7 @@ class CountWordFrequencyService
 
   def word_count
     text
+      .gsub(/[^0-9A-Za-z]/, ' ')
       .split
       .group_by { |word| word.downcase }
       .transform_values(&:count)

@@ -2,14 +2,12 @@ class CountWords::ByTextsController < ApplicationController
 
   def create
     text = sanatize_params[:text]
-    status, mssg = CountWordFrequencyService.new(text).()
+    status, mssg = CountWordFrequencyService.new(text.to_s).()
 
     if status
-      puts "*"*100
-      puts "todo ok"
-      puts "*"*100
+      redirect_to count_words_result_path(:frequency => mssg)
     else
-      flash[:error] = t('.error')
+      flash[:error] = mssg
       redirect_to root_path
     end
   end
