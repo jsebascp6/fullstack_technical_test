@@ -1,0 +1,66 @@
+.options {
+  padding: 0px 15.625rem;
+  min-height: 12.5rem;
+  position: relative;
+  margin: 0.75rem 0;
+  clear: both;
+
+  .option {
+    float: left;
+
+    &.right {
+      float: right;
+    }
+
+    label {
+      border: 1px solid #ccc;
+      position: relative;
+      margin-left: -1px;
+      padding: 0.625rem;
+      background: #eee;
+      cursor: pointer;
+      left: 1px;
+    }
+
+    .content {
+      border: 1px solid #ccc;
+      position: absolute;
+      background: white;
+      padding: 1.25rem;
+      overflow: hidden;
+      top: 1.75rem;
+      bottom: 0;
+      right: 0;
+      left: 0;
+
+      & > * {
+        transform: translateX(-100%);
+        transition: all 0.6s ease;
+        opacity: 0;
+      }
+    }
+
+    & [type="radio"] {
+      opacity: 0;
+    }
+ 
+    [type="radio"]:focus ~ label {
+      ouline: 2px solid blue;
+    }
+ 
+    [type="radio"]:checked ~ label {
+      border-bottom: 1px solid white;
+      background: white;
+      z-index: 2;
+    }
+ 
+    [type="radio"]:checked ~ label ~ .content {
+      z-index: 1;
+    }
+ 
+    [type="radio"]:checked ~ label ~ .content > * {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}

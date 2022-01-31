@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Monserrat:300,400,500,700');
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  font-family: 'Monserrat', sans-serif;
+  min-height: 100%;
+  font-size: 16px;
+  margin: 0;
+}
+
+input,
+select,
+textarea {
+  font-family: 'Monserrat', sans-serif;
+}
+
+body.no-scroll {
+  overflow: hidden;
+  height: 1vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.mb-medium{
+  margin-bottom: 5rem;
+}
+

@@ -1,0 +1,25 @@
+.text-input-action {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+
+  p {
+    margin: 0 0 0.625rem;
+    font-weight: bold;
+
+    &.file {
+      margin-bottom: 1.563rem;
+    }
+  }
+
+  textarea {
+    margin-bottom: 0.625rem;
+    padding: 0.625rem;
+    height: 3.75rem;
+    width: 100%;
+  }
+
+  [type="file"] {
+    margin-bottom: 1.563rem;
+  }
+}
