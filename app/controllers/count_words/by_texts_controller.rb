@@ -2,7 +2,7 @@ class CountWords::ByTextsController < ApplicationController
 
   def create
     text = sanatize_params[:text]
-    status, mssg = CountWordFrequencyService.new(text)
+    status, mssg = CountWordFrequencyService.new(text).()
 
     if status
       puts "*"*100
