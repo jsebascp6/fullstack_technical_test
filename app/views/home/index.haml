@@ -2,7 +2,14 @@
 %p Puedes escribir un texto o cargar un archivo para el conteo de palabras
 
 %span Escribir
+= simple_form_for :count_words, url: count_words_by_text_path, method: :post do |f|
+  = f.input_field :text, as: :text
+  = f.submit "cargar"
+
 %span Cargar
+= simple_form_for :count_words, url: count_words_by_file_path, method: :post do |f|
+  = f.input :file, as: :file, input_html: {accept: ".txt"}
+  = f.submit "cargar"
 
 %a{:href => ''} Contar
 
