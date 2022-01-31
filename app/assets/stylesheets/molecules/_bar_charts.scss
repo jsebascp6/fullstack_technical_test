@@ -1,0 +1,80 @@
+.histogram {
+  dl {
+    background-color: white;
+    flex-direction: column;
+    max-width: 43.75rem;
+    position: relative;
+    padding: 1.25rem;
+    display: flex;
+    width: 100%;
+  }
+  
+  dt {
+    margin-bottom: 1.25rem;
+    align-self: flex-start;
+    margin-left: 8.125rem;
+    text-align: center;
+    font-weight: 700;
+    font-weight: 700;
+    font-size: 1.2em;
+    display: block;
+    width: 100%;
+  }
+  
+  .text {
+    justify-content: flex-end;
+    background-color: white;
+    align-items: center;
+    position: absolute;
+    font-weight: 600;
+    width: 8.125rem;
+    height: 2.5rem;
+    display: flex;
+    left: 0;
+  }
+  
+  .percentage {
+    text-transform: uppercase;
+    margin-left: 8.125rem;
+    font-size: .8em;
+    line-height: 1;
+    height: 2.5rem;
+    width: 100%;
+    background: repeating-linear-gradient(
+    to right,
+    #ddd,
+    #ddd 1px,
+    #fff 1px,
+    #fff 5%
+  );
+    
+    &:after {
+      transition: background-color .3s ease;
+      transform: translateY(-50%);
+      background-color: #3d9970;
+      margin-bottom: 0.625rem;
+      position: relative;
+      width: 3.125rem;
+      cursor: pointer;
+      display: block;
+      content: "";
+      height: 90%;
+      top: 50%;
+    }
+    &:hover,
+    &:focus {
+      &:after {
+         background-color: #aaa; 
+      }
+    }
+  }
+  
+  @for $i from 1 through 100 {
+    .percentage-#{$i} {
+      &:after {
+        $value: ($i * 1%);
+        width: $value;
+      }
+    }
+  }
+}

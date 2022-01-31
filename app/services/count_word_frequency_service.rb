@@ -21,7 +21,5 @@ class CountWordFrequencyService
       .split
       .group_by { |word| word.downcase }
       .transform_values(&:count)
-      .sort_by { |_, value| -value }
-      .to_h
   end
 end
