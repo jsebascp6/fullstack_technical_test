@@ -1,8 +1,12 @@
 // BASE
 @import "base";
 
+// VARIABLES
+@import "variables/colors";
+
 // ATOMS
 @import "atoms/buttons";
+@import "atoms/flash";
 
 // MOLECULES
 @import "molecules/boxes";

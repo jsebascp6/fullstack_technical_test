@@ -8,11 +8,13 @@ RSpec.describe "home", :type => :feature do
 
       expect(current_path).to eq(root_path)
 
+      find(:css, "#option-1").set(true)
+
       fill_in "count_words[text]", :with => "lumu lumu lumu lumu lumu illuminates illuminates attacks and adversaries lumu illuminates all attacks and adversaries"
 
-      click_on "Contar"
+      click_on "Cargar"
 
-      expect(current_path).to eq(count_words_path)
+      expect(current_path).to eq(count_words_result_path)
 
       expect(page).to have_text("Histograma")
       expect(page).to have_text("Acá puedes ver la cantidad de palabras que tenía tu texto!")
@@ -25,13 +27,15 @@ RSpec.describe "home", :type => :feature do
 
       expect(current_path).to eq(root_path)
 
+      find(:css, "#option-1").set(true)
+
       fill_in "count_words[text]", :with => ""
 
-      click_on "Contar"
+      click_on "Cargar"
 
       expect(current_path).to eq(root_path)
 
-      expect(page).to have_text("Lo sentimos, no escribiste ningún texto. Vuelve a intentarlo")
+      expect(page).to have_text("Lo sentimos, no se detectó ninguna palabra en el texto")
     end
   end
 
@@ -41,28 +45,16 @@ RSpec.describe "home", :type => :feature do
 
       expect(current_path).to eq(root_path)
 
-      attach_file('count_words[file]', Rails.root + "spec/factories/files/texto.txt", make_visible: true)
+      find(:css, "#option-2").set(true)
 
-      click_on "Contar"
+      attach_file('count_words[file]', Rails.root + "spec/factories/files/text.txt", make_visible: true)
 
-      expect(current_path).to eq(count_words_path)
+      click_on "Subir"
+
+      expect(current_path).to eq(count_words_result_path)
 
       expect(page).to have_text("Histograma")
       expect(page).to have_text("Acá puedes ver la cantidad de palabras que tenía tu texto!")
-    end
-  end
-
-  describe "When a user does not upload a txt and gives it count" do
-    scenario "Should show you an empty field error" do
-      visit root_path
-
-      expect(current_path).to eq(root_path)
-
-      click_on "Contar"
-
-      expect(current_path).to eq(root_path)
-
-      expect(page).to have_text("Lo sentimos, no cargaste ningún archivo. Vuelve a intentarlo")
     end
   end
 
@@ -72,13 +64,15 @@ RSpec.describe "home", :type => :feature do
 
       expect(current_path).to eq(root_path)
 
-      attach_file('count_words[file]', Rails.root + "spec/factories/files/texto.pdf", make_visible: true)
+      find(:css, "#option-2").set(true)
 
-      click_on "Contar"
+      attach_file('count_words[file]', Rails.root + "spec/factories/files/text.pdf", make_visible: true)
+
+      click_on "Subir"
 
       expect(current_path).to eq(root_path)
 
-      expect(page).to have_text("Lo sentimos, sólo aceptamos archivos con extensión .txt")
+      expect(page).to have_text("Lo sentimos, el tipo de archivo no es compatible")
     end
   end
 end

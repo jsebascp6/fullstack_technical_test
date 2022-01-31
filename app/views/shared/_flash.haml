@@ -1,0 +1,5 @@
+-flash.keys.each do |flash_key|
+  %input{type: "checkbox", id:"toggle", class: "visually-hidden"}
+  %div{class: "flash #{flash_key}"}
+    %span=flash[flash_key]
+    %label{for: "toggle"} x

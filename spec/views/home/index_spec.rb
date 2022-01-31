@@ -12,7 +12,5 @@ RSpec.describe "home/index" do
 
     expect(rendered).to have_content "Escribir"
     expect(rendered).to have_content "Cargar"
-
-    expect(rendered).to have_content "Contar"
   end
 end

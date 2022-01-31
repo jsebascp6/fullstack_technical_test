@@ -2,12 +2,12 @@ class CountWords::ByFilesController < ApplicationController
 
   def create
     file = File.open(sanatize_params[:file])
-    status, mssg = ValidateFileAndCountWordsService.new(file)
+    status, mssg = ValidateFileAndCountWordsService.new(file).()
 
     if status
       redirect_to count_words_result_path(:frequency => mssg)
     else
-      flash[:error] = t('.error')
+      flash[:error] = mssg
       redirect_to root_path
     end
   end

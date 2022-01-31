@@ -1,3 +1,4 @@
+= render 'shared/flash'
 .general-container
   %h1 Bienvenido a tu contador de palabras
   %p.description-template Puedes escribir un texto o cargar un archivo para el conteo de palabras
@@ -11,7 +12,7 @@
           .text-input-action
             %p Acá puedes escribir el texto para realizar el conteo
             = f.input_field :text, as: :text, placeholder: "Escribir..."
-            = f.submit "cargar", class: 'primary-button'
+            = f.submit "Cargar", class: 'primary-button'
     .option.right
       %input#option-2{:name => "tab-group-1", :type => "radio"}/
       %label{:for => "option-2"} Cargar
@@ -19,5 +20,5 @@
         = simple_form_for :count_words, url: count_words_by_file_path, method: :post do |f|
           .text-input-action
             %p.file Acá puedes cargar el archivo para realizar el conteo
-            = f.input_field :file, as: :file, input_html: {accept: ".txt"}
-            = f.submit "cargar", class: 'primary-button'
+            = f.input_field :file, as: :file, accept: ".txt"
+            = f.submit "Subir", class: 'primary-button'
