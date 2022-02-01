@@ -2,6 +2,10 @@
   padding: 5rem 12.5rem;
   text-align: center;
 
+  &.without-padding-top {
+    padding-top: 0;
+  }
+
   p.description-template {
     margin-bottom: 4.375rem;
   }
