@@ -28,6 +28,11 @@ sudo docker-compose up
 ```
 Congratulations! You can now view the project at [localhost:3000](http://localhost:3000/)
 
+# run tests
+```bash
+sudo docker-compose run web bundle exec rspec spec/*
+```
+
 # Where do you see the cycle numbers to find the answer?
 
 Once the run
