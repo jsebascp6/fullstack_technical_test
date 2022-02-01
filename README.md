@@ -12,7 +12,7 @@ Have previously installed:
 # Run the project
 
 ```bash
-git clone ...
+git clone https://github.com/sebascp/fullstack_technical_test.git
 ```
 ```bash
 cd fullstack_technical_test
