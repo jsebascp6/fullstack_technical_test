@@ -1,9 +1,9 @@
-%h1 Histograma
-
-.histogram
-  %dl
-    %dt
-      Acá puedes ver la cantidad de palabras que tenía tu texto!
-    - @frequencies.each do |word, count|
-      %dd{:class => "percentage percentage-#{count}"}
-        %span.text="#{word} #{count}"
+.general-container
+  %h1 Histograma
+  .histogram
+    %dl
+      %dt
+        Acá puedes ver la cantidad de palabras que tenía tu texto!
+      - @frequencies.each do |word, count|
+        %dd{:class => "percentage percentage-#{count}"}
+          %span.text="#{word} #{count}"

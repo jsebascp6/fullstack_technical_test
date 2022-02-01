@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "home", :type => :feature do
-
   describe "When a user writes a text in the field and gives it count" do
     scenario "Should count the words show a histogram" do
       visit root_path
@@ -18,6 +17,24 @@ RSpec.describe "home", :type => :feature do
 
       expect(page).to have_text("Histograma")
       expect(page).to have_text("Acá puedes ver la cantidad de palabras que tenía tu texto!")
+
+      expect(page).to have_text("lumu")
+      expect(page).to have_text("6")
+
+      expect(page).to have_text("illuminates")
+      expect(page).to have_text("3")
+
+      expect(page).to have_text("adversaries")
+      expect(page).to have_text("2")
+
+      expect(page).to have_text("and")
+      expect(page).to have_text("2")
+
+      expect(page).to have_text("attacks")
+      expect(page).to have_text("2")
+
+      expect(page).to have_text("attacks")
+      expect(page).to have_text("1")
     end
   end
 
@@ -47,7 +64,7 @@ RSpec.describe "home", :type => :feature do
 
       find(:css, "#option-2").set(true)
 
-      attach_file('count_words[file]', Rails.root + "spec/factories/files/text.txt", make_visible: true)
+      attach_file('count_words[file]', Rails.root + "spec/factories/files/text.txt")
 
       click_on "Subir"
 
@@ -55,6 +72,24 @@ RSpec.describe "home", :type => :feature do
 
       expect(page).to have_text("Histograma")
       expect(page).to have_text("Acá puedes ver la cantidad de palabras que tenía tu texto!")
+
+      expect(page).to have_text("lumu")
+      expect(page).to have_text("6")
+
+      expect(page).to have_text("illuminates")
+      expect(page).to have_text("3")
+
+      expect(page).to have_text("adversaries")
+      expect(page).to have_text("2")
+
+      expect(page).to have_text("and")
+      expect(page).to have_text("2")
+
+      expect(page).to have_text("attacks")
+      expect(page).to have_text("2")
+
+      expect(page).to have_text("attacks")
+      expect(page).to have_text("1")
     end
   end
 
@@ -66,7 +101,7 @@ RSpec.describe "home", :type => :feature do
 
       find(:css, "#option-2").set(true)
 
-      attach_file('count_words[file]', Rails.root + "spec/factories/files/text.pdf", make_visible: true)
+      attach_file('count_words[file]', Rails.root + "spec/factories/files/text.pdf")
 
       click_on "Subir"
 

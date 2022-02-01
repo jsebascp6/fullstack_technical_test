@@ -34,7 +34,6 @@
   }
   
   .percentage {
-    text-transform: uppercase;
     margin-left: 8.125rem;
     font-size: .8em;
     line-height: 1;
@@ -69,11 +68,12 @@
     }
   }
   
-  @for $i from 1 through 100 {
+  @for $i from 1 through 1000 {
     .percentage-#{$i} {
       &:after {
         $value: ($i * 1%);
         width: $value;
+        background-color: #{#1d8870};
       }
     }
   }
